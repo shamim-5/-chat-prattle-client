@@ -1,0 +1,16 @@
+{
+  "name": "json-server",
+  "description": "Example in json-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Learn with Sumit",
+  "dependencies": {
+    "json-server-auth": "^2.1.0",
+    "nodemon": "^2.0.20",
+    "start": "^5.1.0"
+  }
+}
