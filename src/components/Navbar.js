@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <Layout className="layout">
-      <Header className="flex lg:flex-row flex-col lg:h-20 h-auto items-center justify-start font-semibold  text-[#F0F2F5] lg:p-0 p-4 ">
+      <Header className="flex lg:flex-row flex-col lg:h-20 h-auto items-center justify-start font-semibold  text-[#F0F2F5] lg:p-0 p-4">
         <div className="logo" />
 
         <div className="flex justify-start items-center">
@@ -51,10 +51,6 @@ const Navbar = () => {
       </Header>
 
       <Dashboard collapsed={collapsed} />
-
-      <Footer className="text-sm font-semibold text-center text-white py-6  bg-[#1C2E4C]">
-        ©2022 <span className="text-[#8d9493] hover:text-[#3e66ac]">Real Chat</span>. All Rights Reserved.
-      </Footer>
     </Layout>
   );
 };
