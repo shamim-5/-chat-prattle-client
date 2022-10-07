@@ -42,7 +42,7 @@ const Navbar = () => {
               <Menu
                 className="w-96 flex lg:justify-start items-center justify-between"
                 theme="dark"
-                mode="horizontal"
+                mode="inline"
                 defaultSelectedKeys={[window.location.pathname]}
                 items={menuItems.map((m) => {
                   return {

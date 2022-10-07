@@ -23,10 +23,8 @@ const Dashboard = ({ collapsed }) => {
       <Sider trigger={null} collapsible collapsed={collapsed} className="lg:h-screen h-auto">
         <div className="logo" />
         <Menu
-          onClick={({ key }) => {
-            navigate(key);
-          }}
-          className="lg:h-screen lg:w-full w-screen flex lg:flex-col flex-row "
+          onClick={({ key }) => navigate(key)}
+          className="lg:h-screen lg:w-full w-screen flex lg:flex-col flex-row sticky z-40"
           theme="dark"
           mode="inline"
           defaultSelectedKeys={[window.location.pathname]}
