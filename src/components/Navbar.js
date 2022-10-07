@@ -1,52 +1,75 @@
 import logoImage from "../assets/logo.png";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from "@ant-design/icons";
 
-import { Layout, Menu } from "antd";
-import React from "react";
-import { Link } from "react-router-dom";
+import { Button, Layout, Menu } from "antd";
+import React, { Profiler } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import useCollapsed from "../hooks/useCollapsed";
 import Dashboard from "./Dashboard/Dashboard";
-const { Header, Footer } = Layout;
+import Search from "antd/lib/input/Search";
+const { Header } = Layout;
 
 const Navbar = () => {
   const [collapsed, setCollapsed] = useCollapsed();
-  console.log(collapsed);
+  const navigate = useNavigate();
 
   const menuItems = [
-    { id: 1, name: "Home", path: "/" },
-    { id: 1, name: "Home", path: "/home" },
-    { id: 1, name: "Home", path: "/inbox" },
-    { id: 1, name: "Home", path: "/messages" },
-    { id: 1, name: "Home", path: "/dashboard" },
+    { name: "Inbox", key: "/inbox" },
+    { name: "Messages", key: "/messages" },
+    { name: "Conversations", key: "/conversations" },
   ];
+
+  const onSearch = (value) => console.log(value);
 
   return (
     <Layout className="layout">
-      <Header className="flex lg:flex-row flex-col lg:h-20 h-auto items-center justify-start font-semibold  text-[#F0F2F5] lg:p-0 p-4">
+      <Header className="h-auto font-semibold text-[#F0F2F5] lg:p-0 p-4 sticky z-40 top-0">
         <div className="logo" />
-
-        <div className="flex justify-start items-center">
-          <img src={logoImage} className="w-16 mr-2" alt="logoImage" />
-          <h2 className="text-3xl mr-4 text-slate-300">Real Chat</h2>
-        </div>
-
-        <div className="flex items-center text-2xl">
-          <div>
-            {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-              className: "trigger",
-              onClick: () => setCollapsed(!collapsed),
-            })}
+        <div className="flex lg:flex-row flex-col items-center justify-around mx-4">
+          <div className=" flex items-center mx-4 my-4">
+            <img src={logoImage} className="w-16 mr-2" alt="logoImage" />
+            <h2 className="text-2xl  text-slate-500">Real Chat</h2>
           </div>
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={["2"]}
-            items={menuItems.map((m) => {
-              return {
-                label: <Link to={m.path}>{m.name}</Link>,
-              };
-            })}
-          />
+
+          <div className="flex-1   mx-4">
+            <div className="flex  items-center">
+              <div className="lg:visible invisible lg:mb-1  text-2xl text-[#3f5b8d] ">
+                {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+                  className: "trigger",
+                  onClick: () => setCollapsed(!collapsed),
+                })}
+              </div>
+              <Menu
+                className="w-96 flex lg:justify-start items-center justify-between"
+                theme="dark"
+                mode="horizontal"
+                defaultSelectedKeys={[window.location.pathname]}
+                items={menuItems.map((m) => {
+                  return {
+                    label: <Link to={m.key}>{m.name}</Link>,
+                  };
+                })}
+              />
+            </div>
+          </div>
+          <div className="flex items-center mx-4">
+            <Search placeholder="Search" allowClear onSearch={onSearch} className="lg:w-75 w-48" />
+            <Menu
+              onClick={({ key }) => navigate(key)}
+              className="w-32"
+              theme="dark"
+              mode="inline"
+              defaultSelectedKeys={[window.location.pathname]}
+              items={[
+                {
+                  key: "profile",
+                  icon: <UserOutlined style={{ fontSize: "16px", color: "#08c", marginBottom: "4px" }} />,
+                  label: "Profile",
+                },
+              ]}
+            />
+            <Button className=" text-slate-300 ">Logout</Button>
+          </div>
         </div>
       </Header>
 

@@ -1,41 +1,70 @@
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
+import {
+  UploadOutlined,
+  PoweroffOutlined,
+  HomeOutlined,
+  UnorderedListOutlined,
+  InfoCircleOutlined,
+  UserOutlined,
+  UserDeleteOutlined,
+} from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import { Footer } from "antd/lib/layout/layout";
-import React, { useEffect, useState } from "react";
-import useCollapsed from "../../hooks/useCollapsed";
-const { Header, Sider, Content } = Layout;
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Home from "../../pages/Home";
+
+const { Sider, Content } = Layout;
 
 const Dashboard = ({ collapsed }) => {
+  const navigate = useNavigate();
+
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed} className="lg:h-screen h-0 ">
+      <Sider trigger={null} collapsible collapsed={collapsed} className="lg:h-screen h-auto">
         <div className="logo" />
         <Menu
-          className="lg:h-screen lg:w-full w-screen  flex lg:flex-col flex-row"
+          onClick={({ key }) => {
+            navigate(key);
+          }}
+          className="lg:h-screen lg:w-full w-screen flex lg:flex-col flex-row "
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={[window.location.pathname]}
           items={[
             {
-              key: "1",
-              icon: <UserOutlined />,
-              label: "nav 1",
+              key: "/home",
+              icon: <HomeOutlined />,
+              label: "Home",
             },
             {
-              key: "2",
-              icon: <VideoCameraOutlined />,
-              label: "nav 2",
+              key: "/info",
+              icon: <InfoCircleOutlined />,
+              label: "Info",
             },
             {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "nav 3",
+              key: "/usersList",
+              icon: <UnorderedListOutlined />,
+              label: "UsersList",
+              children: [
+                {
+                  key: "/activeUsersList",
+                  icon: <UserOutlined />,
+                  label: "ActiveUsersList",
+                },
+                {
+                  key: "/disabledUsersList",
+                  icon: <UserDeleteOutlined />,
+                  label: "DisabledUsersList",
+                },
+              ],
             },
           ]}
         />
       </Sider>
-      <Layout className="site-layout bg-[#1C2E4C] lg:relative absolute left-0 lg:top-0 top-40  lg:min-w-0 min-w-full h-screen">
-        <Content className="bg-[#0C1A32] text-[#98ACC3] lg:my-6 lg:mx-4 py-2 px-4">Content</Content>
+      <Layout className="site-layout bg-[#1C2E4C] lg:relative absolute left-0 lg:top-0 top-64 lg:min-w-0 min-w-full h-screen">
+        <Content className="bg-[#0C1A32] text-[#98ACC3] lg:my-6 lg:mx-4 py-6 px-6">
+          <Home />
+        </Content>
 
         <Footer className="text-sm font-semibold text-center text-white py-6  bg-[#1C2E4C] flex justify-between">
           <div>
