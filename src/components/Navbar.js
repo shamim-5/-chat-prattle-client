@@ -5,11 +5,10 @@ import { Button, Layout, Menu } from "antd";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useCollapsed from "../hooks/useCollapsed";
-import Dashboard from "./dashboard/Dashboard";
 import Search from "antd/lib/input/Search";
 const { Header } = Layout;
 
-const Navbar = () => {
+const Navbar = ({children}) => {
   const [collapsed, setCollapsed] = useCollapsed();
   const navigate = useNavigate();
 
@@ -74,7 +73,7 @@ const Navbar = () => {
       </Header>
 
       <div>
-        <Dashboard collapsed={collapsed} />
+        {children}
       </div>
     </Layout>
   );
