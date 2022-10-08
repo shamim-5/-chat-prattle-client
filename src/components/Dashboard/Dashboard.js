@@ -1,6 +1,4 @@
 import {
-  UploadOutlined,
-  PoweroffOutlined,
   HomeOutlined,
   UnorderedListOutlined,
   InfoCircleOutlined,
@@ -11,7 +9,7 @@ import { Layout, Menu } from "antd";
 import { Footer } from "antd/lib/layout/layout";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Home from "../../pages/Home";
+import Home from "../Home";
 
 const { Sider, Content } = Layout;
 
@@ -20,7 +18,7 @@ const Dashboard = ({ collapsed }) => {
 
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed} className="lg:h-screen h-auto">
+      <Sider trigger={null} collapsible collapsed={collapsed} className="lg:h-[100vh] lg:fixed top-22 left-0">
         <div className="logo" />
         <Menu
           onClick={({ key }) => navigate(key)}
@@ -30,7 +28,7 @@ const Dashboard = ({ collapsed }) => {
           defaultSelectedKeys={[window.location.pathname]}
           items={[
             {
-              key: "/home",
+              key: "/",
               icon: <HomeOutlined />,
               label: "Home",
             },
@@ -59,8 +57,9 @@ const Dashboard = ({ collapsed }) => {
           ]}
         />
       </Sider>
-      <Layout className="site-layout bg-[#1C2E4C] lg:relative absolute left-0 lg:top-0 top-64 lg:min-w-0 min-w-full h-screen">
-        <Content className="bg-[#0C1A32] text-[#98ACC3] lg:my-6 lg:mx-4 py-6 px-6">
+
+      <Layout className="site-layout bg-[#1C2E4C] lg:ml-[200px] lg:relative absolute left-0 lg:top-0 top-64 lg:min-w-0 min-w-full">
+        <Content className="bg-[#0C1A32] text-[#98ACC3] lg:my-6 lg:mx-4 pt-12 pb-9 px-6 ">
           <Home />
         </Content>
 

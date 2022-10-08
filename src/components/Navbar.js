@@ -2,10 +2,10 @@ import logoImage from "../assets/logo.png";
 import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from "@ant-design/icons";
 
 import { Button, Layout, Menu } from "antd";
-import React, { Profiler } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useCollapsed from "../hooks/useCollapsed";
-import Dashboard from "./Dashboard/Dashboard";
+import Dashboard from "./dashboard/Dashboard";
 import Search from "antd/lib/input/Search";
 const { Header } = Layout;
 
@@ -14,15 +14,15 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const menuItems = [
-    { name: "Inbox", key: "/inbox" },
+    { name: "Inbox", key: "/inbox/1" },
     { name: "Messages", key: "/messages" },
-    { name: "Conversations", key: "/conversations" },
+    { name: "Conversations", key: "/inbox" },
   ];
 
   const onSearch = (value) => console.log(value);
 
   return (
-    <Layout className="layout">
+    <Layout className="layout ">
       <Header className="h-auto font-semibold text-[#F0F2F5] lg:p-0 p-4 sticky z-40 top-0">
         <div className="logo" />
         <div className="flex lg:flex-row flex-col items-center justify-around mx-4">
@@ -73,7 +73,9 @@ const Navbar = () => {
         </div>
       </Header>
 
-      <Dashboard collapsed={collapsed} />
+      <div>
+        <Dashboard collapsed={collapsed} />
+      </div>
     </Layout>
   );
 };
