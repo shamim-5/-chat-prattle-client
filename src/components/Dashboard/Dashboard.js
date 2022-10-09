@@ -21,7 +21,7 @@ const Dashboard = ({ collapsed, children }) => {
         <div className="logo" />
         <Menu
           onClick={({ key }) => navigate(key)}
-          className="lg:h-screen lg:w-full w-[calc(100vw_-_17px)] flex lg:flex-col flex-row sticky z-40"
+          className="lg:h-screen lg:w-full w-screen flex lg:flex-col flex-row sticky z-40"
           theme="dark"
           mode="inline"
           defaultSelectedKeys={[window.location.pathname]}

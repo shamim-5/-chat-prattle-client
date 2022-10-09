@@ -8,7 +8,7 @@ import useCollapsed from "../hooks/useCollapsed";
 import Search from "antd/lib/input/Search";
 const { Header } = Layout;
 
-const Navbar = ({children}) => {
+const Navbar = ({ children }) => {
   const [collapsed, setCollapsed] = useCollapsed();
   const navigate = useNavigate();
 
@@ -72,9 +72,7 @@ const Navbar = ({children}) => {
         </div>
       </Header>
 
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
     </Layout>
   );
 };
