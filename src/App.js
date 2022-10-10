@@ -8,18 +8,52 @@ import Register from "./pages/Register";
 import Conversation from "./pages/Conversation";
 import Inbox from "./pages/Inbox";
 import Home from "./components/Home";
+import useAuthCheck from "./hooks/useAuthCheck";
+import PublicRoute from "./components/PublicRoute";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
-  return (
+  const authChecked = useAuthCheck();
+  return !authChecked ? (
+    <div>Checking authentication</div>
+  ) : (
     <div className="lg:h-screen scrollbar-thin scrollbar-thumb-[#001529] scrollbar-track-slate-500">
       <Navbar>
         <Dashboard>
           <Home>
             <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/inbox" element={<Conversation />} />
-              <Route path="/inbox/:id" element={<Inbox />} />
+              <Route
+                path="/"
+                element={
+                  <PublicRoute>
+                    <Login />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/register"
+                element={
+                  <PublicRoute>
+                    <Register />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/inbox"
+                element={
+                  <PrivateRoute>
+                    <Conversation />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/inbox/:id"
+                element={
+                  <PrivateRoute>
+                    <Inbox />
+                  </PrivateRoute>
+                }
+              />
             </Routes>
           </Home>
         </Dashboard>

@@ -6,19 +6,29 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useCollapsed from "../hooks/useCollapsed";
 import Search from "antd/lib/input/Search";
+import { useDispatch } from "react-redux";
+import { userLoggedOut } from "../features/auth/authSlice";
 const { Header } = Layout;
 
 const Navbar = ({ children }) => {
   const [collapsed, setCollapsed] = useCollapsed();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
 
   const menuItems = [
-    { name: "Inbox", key: "/inbox/1" },
+    { name: "Inbox", key: `/inbox` },
     { name: "Messages", key: "/messages" },
     { name: "Conversations", key: "/inbox" },
   ];
 
   const onSearch = (value) => console.log(value);
+
+
+   const logout = () => {
+     dispatch(userLoggedOut);
+     localStorage.clear();
+   };
 
   return (
     <Layout className="layout ">
@@ -67,7 +77,7 @@ const Navbar = ({ children }) => {
                 },
               ]}
             />
-            <Button className=" text-slate-300 ">Logout</Button>
+            <Button onClick={logout} className=" text-slate-300 ">Logout</Button>
           </div>
         </div>
       </Header>
