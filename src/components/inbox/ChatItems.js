@@ -62,6 +62,7 @@ const ChatItems = () => {
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
         height={window.innerHeight - 129}
+        className="scrollbar-thin  scrollbar-thumb-[#001529] scrollbar-track-slate-500"
       >
         {conversations.map((conversation) => {
           const { id, message, timestamp } = conversation;

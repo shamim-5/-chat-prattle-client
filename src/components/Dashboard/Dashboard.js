@@ -58,7 +58,7 @@ const Dashboard = ({ collapsed, children }) => {
       </Sider>
 
       <Layout className="site-layout bg-[#1C2E4C] lg:ml-[200px] lg:relative absolute left-0 lg:top-0 top-64 lg:min-w-0 min-w-full min-h-screen">
-        <Content className="bg-[#0C1A32] text-[#98ACC3] lg:my-6 lg:mx-4 pt-12 pb-9 px-6">{children}</Content>
+        <Content className="text-[#98ACC3] ml-6 my-6">{children}</Content>
 
         <Footer className="text-sm font-semibold text-center text-white py-6  bg-[#1C2E4C] flex justify-between">
           <div>

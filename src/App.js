@@ -11,13 +11,14 @@ import Home from "./components/Home";
 import useAuthCheck from "./hooks/useAuthCheck";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
+import Profile from "./pages/Profile";
 
 function App() {
   const authChecked = useAuthCheck();
   return !authChecked ? (
     <div>Checking authentication</div>
   ) : (
-    <div className="lg:h-screen scrollbar-thin scrollbar-thumb-[#001529] scrollbar-track-slate-500">
+    <div className="lg:h-screen text-gray scrollbar-thin  scrollbar-thumb-[#001529] scrollbar-track-slate-500">
       <Navbar>
         <Dashboard>
           <Home>
@@ -36,6 +37,14 @@ function App() {
                   <PublicRoute>
                     <Register />
                   </PublicRoute>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <PrivateRoute>
+                    <Profile />
+                  </PrivateRoute>
                 }
               />
               <Route

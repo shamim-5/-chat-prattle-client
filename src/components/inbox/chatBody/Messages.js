@@ -7,7 +7,7 @@ const Messages = ({ messages = [] }) => {
   const { email } = user || {};
 
   return (
-    <div className="relative w-full h-[calc(100vh_-_197px)] p-6 overflow-y-auto flex flex-col-reverse">
+    <div className="relative w-full p-6 overflow-y-auto flex flex-col-reverse scrollbar-thin  scrollbar-thumb-[#001529] scrollbar-track-slate-500">
       <ul className="space-y-2">
         {messages
           .slice()

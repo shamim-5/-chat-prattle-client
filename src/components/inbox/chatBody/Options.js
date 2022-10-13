@@ -33,7 +33,7 @@ const Options = ({ info }) => {
   };
 
   return (
-    <form className="flex items-center justify-between w-full p-3 border-t border-gray-300" onSubmit={handleSubmit}>
+    <form className="flex items-center justify-between w-full p-3 mb-6 border border-[#1C2E4C]" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Message"

@@ -15,20 +15,20 @@ const Navbar = ({ children }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-
   const menuItems = [
+    { name: "Home", key: "/" },
     { name: "Inbox", key: `/inbox` },
-    { name: "Messages", key: "/messages" },
-    { name: "Conversations", key: "/inbox" },
+    { name: "Home", key: "/" },
+    { name: "Inbox", key: `/inbox` },
   ];
 
   const onSearch = (value) => console.log(value);
 
-
-   const logout = () => {
-     dispatch(userLoggedOut);
-     localStorage.clear();
-   };
+  const logout = () => {
+    dispatch(userLoggedOut);
+    localStorage.clear();
+    navigate("/");
+  };
 
   return (
     <Layout className="layout ">
@@ -37,7 +37,7 @@ const Navbar = ({ children }) => {
         <div className="flex lg:flex-row flex-col items-center justify-around mx-4">
           <div className=" flex items-center mx-4 my-4">
             <img src={logoImage} className="w-16 mr-2" alt="logoImage" />
-            <h2 className="text-2xl  text-slate-500">Real Chat</h2>
+            <h2 className="text-3xl  text-gray-light font-mono">Real Chat</h2>
           </div>
 
           <div className="flex-1   mx-4">
@@ -77,7 +77,9 @@ const Navbar = ({ children }) => {
                 },
               ]}
             />
-            <Button onClick={logout} className=" text-slate-300 ">Logout</Button>
+            <Button onClick={logout} className="bg-primary text-gray-light ">
+              Logout
+            </Button>
           </div>
         </div>
       </Header>
