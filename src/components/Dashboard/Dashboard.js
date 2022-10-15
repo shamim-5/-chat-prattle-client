@@ -33,27 +33,16 @@ const Dashboard = ({ children }) => {
               icon: <HomeOutlined />,
               label: "Home",
             },
+
             {
-              key: "/info",
-              icon: <InfoCircleOutlined />,
-              label: "Info",
+              key: "/activeUsersList",
+              icon: <UserOutlined />,
+              label: "ActiveUsers",
             },
             {
-              key: "/usersList",
-              icon: <UnorderedListOutlined />,
-              label: "UsersList",
-              children: [
-                {
-                  key: "/activeUsersList",
-                  icon: <UserOutlined />,
-                  label: "ActiveUsersList",
-                },
-                {
-                  key: "/disabledUsersList",
-                  icon: <UserDeleteOutlined />,
-                  label: "DisabledUsersList",
-                },
-              ],
+              key: "/disabledUsersList",
+              icon: <UserDeleteOutlined />,
+              label: "DisabledUsers",
             },
           ]}
         />
@@ -62,9 +51,9 @@ const Dashboard = ({ children }) => {
       <Layout
         className={`site-layout bg-primary ${
           type ? "lg:ml-[80px]" : "lg:ml-[200px]"
-        } lg:relative absolute left-0 lg:top-0 top-64 lg:min-w-0 min-w-full min-h-screen`}
+        } lg:relative absolute left-0 lg:top-0 top-60 lg:min-w-0 min-w-full min-h-screen`}
       >
-        <Content className="text-[#98ACC3] ml-6 my-6">{children}</Content>
+        <Content className="text-[#98ACC3] lg:ml-6 lg:my-6 my-12">{children}</Content>
 
         <Footer className="text-sm font-semibold text-center text-white py-6  bg-[#1C2E4C] flex justify-between">
           <div>

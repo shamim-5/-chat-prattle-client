@@ -1,18 +1,20 @@
 import logoImage from "../assets/logo.png";
 import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from "@ant-design/icons";
+import gravaterUrl from "gravatar-url";
 
 import { Button, Layout, Menu } from "antd";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Search from "antd/lib/input/Search";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userLoggedOut } from "../features/auth/authSlice";
 import { setCollapsed } from "../features/collapsed/collapsedSlice";
 const { Header } = Layout;
 
 const Navbar = ({ children }) => {
   const [fold, setFold] = useState(false);
-  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
+  const { name, email } = user || {};
   const dispatch = useDispatch();
 
   const menuItems = [
@@ -69,20 +71,19 @@ const Navbar = ({ children }) => {
           </div>
           <div className="flex items-center mx-4">
             <Search placeholder="Search" allowClear onSearch={onSearch} className="lg:w-75 w-48" />
-            <Menu
-              onClick={({ key }) => navigate(key)}
-              className="w-32"
-              theme="dark"
-              mode="inline"
-              defaultSelectedKeys={[window.location.pathname]}
-              items={[
-                {
-                  key: "profile",
-                  icon: <UserOutlined style={{ fontSize: "16px", color: "#08c", marginBottom: "4px" }} />,
-                  label: "Profile",
-                },
-              ]}
-            />
+
+            <span className="flex items-center lg:mx-9 mx-4">
+              {email ? (
+                <>
+                  <img src={gravaterUrl(email, { size: 80 })} className="object-cover h-10 w-10 rounded-full" alt="" />
+                  <h2 className="text-gray text-lg uppercase font-thin font-mono mx-2">{name}</h2>
+                </>
+              ) : (
+                <>
+                  <UserOutlined style={{ fontSize: "16px", color: "#08c", marginBottom: "4px" }} />
+                </>
+              )}
+            </span>
             <Button onClick={logout} className="bg-primary text-gray-light ">
               Logout
             </Button>

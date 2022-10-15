@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import ChatItems from "./ChatItems";
 import Modal from "./Modal";
 
 const Sidebar = () => {
   const [opened, setOpened] = useState(false);
+  const { id } = useParams();
 
   const controlModal = () => {
     setOpened((prevState) => !prevState);
   };
   const name = useSelector((state) => state.auth.user.name);
   return (
-    <div className="w-[100px] lg:col-span-1 lg:w-full  bg-secondary rounded-xl">
+    <div
+      className={`lg:mx-0 mx-6 lg:col-span-1 lg:w-full lg:block lg:visible ${
+        id ? "hidden" : ""
+      }  bg-secondary rounded-xl lg:mt-0 mt-4`}
+    >
       <div className="h-[65px] text-center text-grey-500 p-4 border-b border-[#1C2E4C] flex  justify-between">
         <h2 className="font-bold text-xl capitalize text-gray-light">{name}</h2>
         <svg viewBox="0 0 194.436 194.436" className="w-5 h-5 cursor-pointer" onClick={controlModal}>
@@ -30,7 +36,7 @@ C139.689,120.449,136.331,117.092,132.189,117.092z"
           />
         </svg>
       </div>
-      <div className="overflow-auto h-[calc(100vh_-_129px)]">
+      <div className="lg:overflow-auto h-[calc(100vh_-_129px)]">
         <ChatItems />
       </div>
 
