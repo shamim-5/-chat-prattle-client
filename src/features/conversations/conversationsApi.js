@@ -88,6 +88,8 @@ export const conversationsApi = apiSlice.injectEndpoints({
     getConversation: builder.query({
       query: ({ userEmail, participantEmail }) =>
         `/conversations?participants_like=${userEmail}-${participantEmail}&&participants_like=${participantEmail}-${userEmail}`,
+      keepUnusedDataFor: 600,
+      providesTags: ["Conversation"],
     }),
 
     addConversation: builder.mutation({
@@ -96,6 +98,8 @@ export const conversationsApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["Conversation"],
+
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
           const conversation = await queryFulfilled;
@@ -124,6 +128,8 @@ export const conversationsApi = apiSlice.injectEndpoints({
         method: "PATCH",
         body: data,
       }),
+      invalidatesTags: ["Conversation"],
+
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
           const conversation = await queryFulfilled;

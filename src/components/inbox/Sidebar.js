@@ -11,7 +11,7 @@ const Sidebar = () => {
   };
   const name = useSelector((state) => state.auth.user.name);
   return (
-    <div className="w-[100px] lg:col-span-1 md:w-full  bg-secondary rounded-xl">
+    <div className="w-[100px] lg:col-span-1 lg:w-full  bg-secondary rounded-xl">
       <div className="h-[65px] text-center text-grey-500 p-4 border-b border-[#1C2E4C] flex  justify-between">
         <h2 className="font-bold text-xl capitalize text-gray-light">{name}</h2>
         <svg viewBox="0 0 194.436 194.436" className="w-5 h-5 cursor-pointer" onClick={controlModal}>

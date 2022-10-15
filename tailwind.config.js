@@ -15,6 +15,7 @@ module.exports = {
       "gray-light": "#DBDDE0",
       "accent-light": "#1890FF",
       "red-light": "#F6485B",
+      "red-heavy": "#991b1b",
     },
     extend: {},
   },

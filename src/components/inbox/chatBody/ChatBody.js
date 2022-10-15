@@ -34,7 +34,7 @@ const ChatBody = () => {
   }
 
   return (
-    <div className="w-full lg:col-span-2 lg:block ">
+    <div className="w-full lg:col-span-3 lg:block ">
       <div className="grid conversation-row-grid  bg-secondary  mx-6 rounded-xl">{content}</div>
     </div>
   );

@@ -8,16 +8,18 @@ import {
 import { Layout, Menu } from "antd";
 import { Footer } from "antd/lib/layout/layout";
 import React from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const { Sider, Content } = Layout;
 
-const Dashboard = ({ collapsed, children }) => {
+const Dashboard = ({ children }) => {
+  const { type } = useSelector((state) => state?.collapsed);
   const navigate = useNavigate();
 
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed} className="lg:h-[100vh] lg:fixed top-22 left-0">
+      <Sider trigger={null} collapsible collapsed={type} className="lg:h-[100vh] lg:fixed top-22 left-0">
         <div className="logo" />
         <Menu
           onClick={({ key }) => navigate(key)}
@@ -57,7 +59,11 @@ const Dashboard = ({ collapsed, children }) => {
         />
       </Sider>
 
-      <Layout className="site-layout bg-[#1C2E4C] lg:ml-[200px] lg:relative absolute left-0 lg:top-0 top-64 lg:min-w-0 min-w-full min-h-screen">
+      <Layout
+        className={`site-layout bg-primary ${
+          type ? "lg:ml-[80px]" : "lg:ml-[200px]"
+        } lg:relative absolute left-0 lg:top-0 top-64 lg:min-w-0 min-w-full min-h-screen`}
+      >
         <Content className="text-[#98ACC3] ml-6 my-6">{children}</Content>
 
         <Footer className="text-sm font-semibold text-center text-white py-6  bg-[#1C2E4C] flex justify-between">

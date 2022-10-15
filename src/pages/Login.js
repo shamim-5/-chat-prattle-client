@@ -59,7 +59,7 @@ const Login = () => {
                   type="email"
                   autoComplete="email"
                   required
-                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-accent  rounded-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -75,7 +75,7 @@ const Login = () => {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="appearance-none  relative block w-full px-3 py-2 mt-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
+                  className="appearance-none  relative block w-full px-3 py-2 mt-2 border border-gray-300 placeholder-gray-500 text-accent  rounded-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -87,7 +87,7 @@ const Login = () => {
               <div className="text-sm">
                 <small>
                   Don't have an account?{" "}
-                  <Link to="/register" className="font-medium text-accent-light hover:text-violet-500">
+                  <Link to="/register" className="font-medium text-accent-light ">
                     Please Register
                   </Link>
                 </small>
@@ -98,7 +98,7 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-sm text-gray-light bg-cyan hover:bg-accent-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
+                className="group relative w-full flex justify-center py-2 px-4 border border-primary text-sm font-medium rounded-sm text-gray-light hover:bg-cyan bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
               >
                 SIGN IN
               </button>

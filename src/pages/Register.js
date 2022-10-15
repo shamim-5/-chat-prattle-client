@@ -51,8 +51,8 @@ const Register = () => {
             </Link>
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-light">Create your account</h2>
           </div>
-          <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-            <div className="rounded-md shadow-sm -space-y-px">
+          <form className="mt-8" onSubmit={handleSubmit}>
+            <div className="rounded-md shadow-sm">
               <div>
                 <label htmlFor="name" className="sr-only">
                   Full Name
@@ -63,7 +63,7 @@ const Register = () => {
                   type="Name"
                   autoComplete="Name"
                   required
-                  className="appearance-none mt-2 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
+                  className="appearance-none mt-2 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-accent  rounded-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
                   placeholder="Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -80,7 +80,7 @@ const Register = () => {
                   type="email"
                   autoComplete="email"
                   required
-                  className="appearance-none mt-2 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
+                  className="appearance-none mt-2 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-accent  rounded-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -97,7 +97,7 @@ const Register = () => {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="appearance-none mt-2 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
+                  className="appearance-none mt-2 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-accent  rounded-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -114,7 +114,7 @@ const Register = () => {
                   type="confirmPassword"
                   autoComplete="current-confirmPassword"
                   required
-                  className="appearance-none mt-2 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
+                  className="appearance-none mt-2 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-accent  rounded-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
                   placeholder="confirmPassword"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
@@ -122,20 +122,20 @@ const Register = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mt-6 mb-2">
               <div className="flex items-center">
                 <input
                   id="agree"
                   name="agree"
                   type="checkbox"
                   required
-                  className="h-4 w-4 text-violet-600 focus:ring-violet-500 border-gray-300 rounded"
+                  className="h-4 w-4 focus:ring-violet-500 border-gray-300 rounded"
                   checked={agreed}
                   onChange={(e) => setAgreed(e.target.checked)}
                 />
                 <label
                   htmlFor="accept-terms"
-                  className={`ml-2 block text-sm text-gray-900 ${agreed ? "text-accent-light" : ""}`}
+                  className={`ml-2 block text-sm text-accent  ${agreed ? "text-accent-light" : ""}`}
                 >
                   Agreed with the terms and condition
                 </label>
@@ -143,15 +143,24 @@ const Register = () => {
             </div>
 
             <div>
+              <div className="text-sm mb-2 mt-0">
+                <small>
+                  Already have an account?{" "}
+                  <Link to="/" className="font-medium text-accent-light">
+                    Please Login
+                  </Link>
+                </small>
+              </div>
               <button
                 type="submit"
                 disabled={isLoading}
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm text-gray-light  font-medium rounded-sm text-white bg-cyan hover:bg-accent-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
+                className="group relative w-full flex justify-center py-2 px-4 border border-primary text-sm text-gray-light  font-medium rounded-sm text-white hover:bg-cyan bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
               >
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3"></span>
                 SIGN UP
               </button>
             </div>
+
             {error !== "" && <Error message={error} />}
           </form>
         </div>
