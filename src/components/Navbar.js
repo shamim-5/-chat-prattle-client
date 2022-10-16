@@ -16,11 +16,12 @@ const Navbar = ({ children }) => {
   const { user } = useSelector((state) => state.auth);
   const { name, email } = user || {};
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const menuItems = [
-    { name: "Home", key: "/" },
     { name: "Inbox", key: `/inbox` },
-    { name: "Inbox", key: `/inbox` },
+    { name: "Demo1", key: `/demo` },
+    { name: "Demo2", key: `/demo` },
   ];
 
   const onSearch = (value) => console.log(value);
@@ -50,14 +51,14 @@ const Navbar = ({ children }) => {
 
           <div className="flex mr-auto   mx-4">
             <div className="flex  items-center">
-              <div className="lg:visible invisible lg:mb-3  text-2xl text-[#3f5b8d] ">
+              <div className="lg:block lg:visible hidden lg:mb-3  text-2xl text-[#3f5b8d] ">
                 {React.createElement(fold ? MenuUnfoldOutlined : MenuFoldOutlined, {
                   className: "trigger",
                   onClick: () => setFold(!fold),
                 })}
               </div>
               <Menu
-                className=" flex lg:justify-start lg:space-x-1 items-center justify-between lg:w-72 w-96"
+                className=" flex lg:justify-start lg:space-x-1 items-center justify-between lg:w-72 w-[calc(100vw_-_90px)]"
                 theme="dark"
                 mode="inline"
                 defaultSelectedKeys={[window.location.pathname]}
@@ -70,13 +71,19 @@ const Navbar = ({ children }) => {
             </div>
           </div>
           <div className="flex items-center mx-4">
-            <Search placeholder="Search" allowClear onSearch={onSearch} className="lg:w-75 w-48" />
+            <Search placeholder="Search" allowClear onSearch={onSearch} disabled className="lg:w-75 w-48" />
 
             <span className="flex items-center lg:mx-9 mx-4">
               {email ? (
                 <>
-                  <img src={gravaterUrl(email, { size: 80 })} className="object-cover h-10 w-10 rounded-full" alt="" />
-                  <h2 className="text-gray text-lg uppercase font-thin font-mono mx-2">{name}</h2>
+                  <img
+                    src={gravaterUrl(email, { size: 80 })}
+                    className="object-cover lg:mx-0 mx-2 h-10 w-10 rounded-full"
+                    alt=""
+                  />
+                  <h2 className="text-gray lg:block lg:visible hidden text-lg uppercase font-thin font-mono mx-2">
+                    {name}
+                  </h2>
                 </>
               ) : (
                 <>
@@ -84,9 +91,15 @@ const Navbar = ({ children }) => {
                 </>
               )}
             </span>
-            <Button onClick={logout} className="bg-primary text-gray-light ">
-              Logout
-            </Button>
+            {user ? (
+              <Button onClick={logout} className="bg-primary text-gray-light ">
+                Logout
+              </Button>
+            ) : (
+              <Button onClick={() => navigate("/")} className="bg-primary text-gray-light ">
+                Login
+              </Button>
+            )}
           </div>
         </div>
       </Header>

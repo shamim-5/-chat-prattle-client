@@ -1,10 +1,4 @@
-import {
-  HomeOutlined,
-  UnorderedListOutlined,
-  InfoCircleOutlined,
-  UserOutlined,
-  UserDeleteOutlined,
-} from "@ant-design/icons";
+import { HomeOutlined, UserAddOutlined, UserOutlined, UserDeleteOutlined } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import { Footer } from "antd/lib/layout/layout";
 import React from "react";
@@ -35,14 +29,19 @@ const Dashboard = ({ children }) => {
             },
 
             {
-              key: "/activeUsersList",
+              key: "/demo",
               icon: <UserOutlined />,
-              label: "ActiveUsers",
+              label: "Demo1",
             },
             {
-              key: "/disabledUsersList",
+              key: "/demo",
+              icon: <UserAddOutlined />,
+              label: "Demo3",
+            },
+            {
+              key: "/demo",
               icon: <UserDeleteOutlined />,
-              label: "DisabledUsers",
+              label: "Demo2",
             },
           ]}
         />

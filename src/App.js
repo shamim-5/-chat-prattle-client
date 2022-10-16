@@ -12,6 +12,7 @@ import useAuthCheck from "./hooks/useAuthCheck";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./pages/Profile";
+import Demo from "./pages/Demo";
 
 function App() {
   const authChecked = useAuthCheck();
@@ -60,6 +61,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <Inbox />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/demo"
+                element={
+                  <PrivateRoute>
+                    <Demo />
                   </PrivateRoute>
                 }
               />

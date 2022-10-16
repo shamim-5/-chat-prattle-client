@@ -9,3 +9,35 @@
         grid-template-rows: auto 1fr auto;
     }
 }
+
+
+@layer components {
+  .animate{
+    display: flex;
+    animation: scroll 50s linear infinite;
+  }
+  .animate:hover{
+    animation-play-state: paused;
+  }
+
+  .animate-reversed{
+    display: flex;
+    animation: scroll 50s linear infinite;
+    animation-direction: reverse;
+  }
+  .animate-reversed:hover{
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0%{
+
+      transform: translateX(0);
+    }
+    100%{
+
+      transform: translate(-50%);
+    }
+  }
+
+}
