@@ -29,19 +29,19 @@ const Dashboard = ({ children }) => {
             },
 
             {
-              key: "/demo",
+              key: "/demo1",
               icon: <UserOutlined />,
               label: "Demo1",
             },
             {
-              key: "/demo",
+              key: "/demo2",
               icon: <UserAddOutlined />,
-              label: "Demo3",
+              label: "Demo2",
             },
             {
-              key: "/demo",
+              key: "/demo3",
               icon: <UserDeleteOutlined />,
-              label: "Demo2",
+              label: "Demo3",
             },
           ]}
         />
@@ -57,7 +57,7 @@ const Dashboard = ({ children }) => {
         <Footer className="text-sm font-semibold text-center text-white py-6  bg-[#1C2E4C] flex justify-between">
           <div>
             <small>
-              ©2022 <span className="text-[#8d9493] hover:text-[#3e66ac]">Real Chat</span>. All Rights Reserved.
+              ©2022 <span className="text-[#8d9493] hover:text-[#3e66ac]">Chat Prattle</span>. All Rights Reserved.
             </small>
           </div>
           <div>

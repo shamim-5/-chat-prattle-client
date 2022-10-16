@@ -20,8 +20,8 @@ const Navbar = ({ children }) => {
 
   const menuItems = [
     { name: "Inbox", key: `/inbox` },
-    { name: "Demo1", key: `/demo` },
-    { name: "Demo2", key: `/demo` },
+    { name: "Demo1", key: `/demo1` },
+    { name: "Demo2", key: `/demo2` },
   ];
 
   const onSearch = (value) => console.log(value);
@@ -45,8 +45,8 @@ const Navbar = ({ children }) => {
         <div className="logo" />
         <div className="flex lg:flex-row flex-col items-center justify-around mx-4">
           <div className=" flex items-center mx-4 my-4">
-            <img src={logoImage} className="w-16 mr-2" alt="logoImage" />
-            <h2 className="text-3xl  text-gray-light font-mono">Real Chat</h2>
+            <img src={logoImage} className="w-12 mr-2" alt="logoImage" />
+            <h2 className="text-3xl  text-gray-light font-mono">Chat Prattle</h2>
           </div>
 
           <div className="flex mr-auto   mx-4">

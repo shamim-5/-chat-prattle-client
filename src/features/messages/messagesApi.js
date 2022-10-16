@@ -7,10 +7,10 @@ export const messagesApi = apiSlice.injectEndpoints({
       query: (id) =>
         `/messages?conversationId_like=${id}&_sort=timestamp&_order=desc&_page=1&_limit=${process.env.REACT_APP_MESSAGES_PER_PAGE}`,
 
-      // socket on and update cache 
+      // socket on and update cache
       async onCacheEntryAdded(arg, { updateCachedData, cacheDataLoaded, cacheEntryRemoved }) {
         // create socket
-        const socket = io("http://localhost:9000", {
+        const socket = io(process.env.REACT_APP_API_URL, {
           reconnectionDelay: 1000,
           reconnection: true,
           reconnectionAttempts: 10,

@@ -135,7 +135,7 @@ const Register = () => {
                 />
                 <label
                   htmlFor="accept-terms"
-                  className={`ml-2 block text-sm text-accent  ${agreed ? "text-accent-light" : ""}`}
+                  className={`ml-2 block text-sm  ${agreed ? "text-accent-light" : ""}`}
                 >
                   Agreed with the terms and condition
                 </label>

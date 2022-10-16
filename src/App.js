@@ -11,7 +11,6 @@ import Home from "./components/Home";
 import useAuthCheck from "./hooks/useAuthCheck";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
-import Profile from "./pages/Profile";
 import Demo from "./pages/Demo";
 
 function App() {
@@ -41,14 +40,6 @@ function App() {
                 }
               />
               <Route
-                path="/profile"
-                element={
-                  <PrivateRoute>
-                    <Profile />
-                  </PrivateRoute>
-                }
-              />
-              <Route
                 path="/inbox"
                 element={
                   <PrivateRoute>
@@ -65,7 +56,23 @@ function App() {
                 }
               />
               <Route
-                path="/demo"
+                path="/demo1"
+                element={
+                  <PrivateRoute>
+                    <Demo />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/demo2"
+                element={
+                  <PrivateRoute>
+                    <Demo />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/demo3"
                 element={
                   <PrivateRoute>
                     <Demo />
