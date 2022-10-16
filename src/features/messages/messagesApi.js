@@ -21,12 +21,12 @@ export const messagesApi = apiSlice.injectEndpoints({
         });
         try {
           await cacheDataLoaded;
-          socket.on("message", (data) => {
+          socket.on("messageAdded", (data) => {
             updateCachedData((draft) => {
               // eslint-disable-next-line eqeqeq
-              const message = draft.find((c) => c.conversationId == data?.data?.conversationId);
+              const messageAdded = draft.find((c) => c.conversationId == data?.data?.conversationId);
 
-              if (message?.conversationId) {
+              if (messageAdded?.conversationId) {
                 draft.push(data?.data);
               }
             });
