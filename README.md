@@ -1,46 +1,54 @@
-# Getting Started with Create React App and Redux
+# chat-prattle-client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+Welcome to Chat Prattle project build with [React.js]() and [Redux](). This project based on real-time chat application where user can chat with others using perticipants email.
 
-## Available Scripts
+### Features :
 
-In the project directory, you can run:
+- User can add new conversation and send message to participant
+- Implemented socket.io that’s why participant get updated message
+- Sign in, Sign up authentication with Json-Server-Auth.
 
-### `npm start`
+## Getting Started :
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Live Link:** [Chat Prattle Live Website](https://chatprattle5.web.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Test Application as Existing User:
 
-### `npm test`
+`User 1`
+```bash
+email: user1@example.com
+password: 123456
+```
+`User 2`
+```bash
+email: user2@example.com
+password: 123456
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### **Note**: If you don't wanted to signup but want to test the application please login as above **User 1 or User 2**. These email is alredy authorized. Use perticipant email the other one to get started conversation or please sign up and put a authenticated participant email to get started conversations.
 
-### `npm run build`
+## Github Code Link :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Client Side Code:** [chat-prattle-client](https://github.com/shamim-5/chat-prattle-client)
+- **Server Side Code:** [chat-prattle-server](https://github.com/shamim-5/chat-prattle-server)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies Used :
 
-### `npm run eject`
+#### Client Side Implementation :
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [React.js](https://reactjs.org/): A JavaScript library for building user interfaces.
+- [Redux](https://redux.js.org/): A state management library for managing the application's state.
+- [RTK Query](https://redux-toolkit.js.org/rtk-query/overview): A toolset for simplifying API data fetching and state management.
+- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for quickly building custom designs.
+- [Ant Design](https://ant.design/): A design system and UI library for React applications.
+- [socket.io-client](https://socket.io/docs/v3/client-api/): The client-side library for Socket.io, used for real-time communication.
+- [Firebase](https://firebase.google.com/): A mobile and web application development platform by Google.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Server Side Implementation :
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Node.js](https://nodejs.org/): A JavaScript runtime environment for server-side development.
+- [Express.js](https://expressjs.com/): A fast and minimalist web application framework for Node.js.
+- [Json-Server](https://github.com/typicode/json-server): A full fake REST API for testing and prototyping.
+- [Socket.io](https://socket.io/): A library for enabling real-time, bidirectional communication between clients and servers.
+- [Json-Server-Auth](https://github.com/jeremybenaim/json-server-auth): A tool for adding authentication to a JSON Server-based API.
